@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nordic Gerüst GmbH – Gerüstbau Schenefeld & Hamburg</title>
+  <meta name="description" content="Nordic Gerüst GmbH: Ihr Gerüstbaupartner aus Schenefeld. Gerüstbauarbeiten aller Art, Planen- und Netzmontage für Hamburg und Schleswig-Holstein." />
+  <meta name="robots" content="index, follow" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0d2340;
+      --navy-2:     #102a4e;
+      --navy-3:     #163561;
+      --steel:      #1e5a8c;
+      --accent:     #2e8fcf;
+      --accent-lt:  #5ab0e6;
+      --accent-dk:  #1a6fa5;
+      --bg:         #f4f7fb;
+      --white:      #ffffff;
+      --gray-1:     #edf2f7;
+      --gray-2:     #c9d9e8;
+      --gray-3:     #5c7b9a;
+      --text:       #0d1b2e;
+      --text-2:     #2c4a6e;
+      --radius:     12px;
+      --shadow:     0 4px 24px rgba(13,35,64,.10);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      box-shadow: 0 2px 16px rgba(0,0,0,.3);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-size: 17px; font-weight: 700;
+      color: var(--white); text-decoration: none;
+      letter-spacing: -.01em; display: flex; align-items: center; gap: 8px;
+    }
+    .logo-icon {
+      width: 28px; height: 28px;
+      background: var(--accent);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .nav-links {
+      display: flex; gap: 28px; list-style: none; align-items: center;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.75);
+      text-decoration: none; font-size: 14px; font-weight: 500;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--accent-lt); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--white) !important;
+      padding: 8px 18px; border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background .15s !important;
+    }
+    .nav-cta:hover { background: var(--accent-dk) !important; }
+    a:focus-visible { outline: 3px solid var(--accent-lt); outline-offset: 2px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, var(--navy) 0%, var(--navy-3) 50%, var(--steel) 100%);
+      color: var(--white);
+      padding: 80px 24px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(46,143,207,.15) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+    }
+    @media (max-width: 800px) { .hero-inner { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(46,143,207,.2); border: 1px solid rgba(90,176,230,.35);
+      color: var(--accent-lt); font-size: 12px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 100px; margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.1rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -.02em; margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent-lt); }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,.78); max-width: 520px;
+      margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: var(--white);
+      padding: 14px 28px; border-radius: var(--radius);
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background .15s, transform .1s;
+      box-shadow: 0 4px 20px rgba(46,143,207,.45);
+    }
+    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); color: var(--white);
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 14px 28px; border-radius: var(--radius);
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      transition: background .15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.18); }
+
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .hero-chip {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 10px; padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px;
+    }
+    .hero-chip-icon { font-size: 22px; }
+    .hero-chip strong { display: block; font-size: 14px; color: var(--white); }
+    .hero-chip span { color: rgba(255,255,255,.6); }
+
+    /* ── SECTIONS ── */
+    section { padding: 72px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--accent); margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; line-height: 1.2; letter-spacing: -.02em;
+      margin-bottom: 16px; color: var(--text);
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--gray-3);
+      max-width: 580px; line-height: 1.7; margin-bottom: 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services-bg { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--gray-1);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--gray-2);
+      transition: box-shadow .2s, transform .15s;
+    }
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .service-top {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .service-icon {
+      width: 44px; height: 44px;
+      background: rgba(46,143,207,.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .service-card p { font-size: .92rem; color: var(--gray-3); line-height: 1.6; }
+
+    /* ── HIGHLIGHT BAR ── */
+    .highlight-bg { background: var(--navy); }
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1px; background: rgba(255,255,255,.1);
+    }
+    .highlight-item {
+      background: var(--navy);
+      padding: 36px 28px; text-align: center;
+    }
+    .highlight-val {
+      font-size: 2.4rem; font-weight: 800;
+      color: var(--accent-lt); line-height: 1;
+    }
+    .highlight-label {
+      font-size: 12px; color: rgba(255,255,255,.5);
+      text-transform: uppercase; letter-spacing: .06em; margin-top: 6px;
+    }
+
+    /* ── WHY ── */
+    .why-bg { background: var(--bg); }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      border-top: 3px solid var(--accent);
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .why-item h3 { font-size: .97rem; font-weight: 700; margin-bottom: 8px; }
+    .why-item p { font-size: .88rem; color: var(--gray-3); line-height: 1.6; }
+
+    /* ── AREA ── */
+    .area-bg { background: var(--navy-2); color: var(--white); }
+    .area-bg .section-title { color: var(--white); }
+    .area-bg .section-sub { color: rgba(255,255,255,.6); }
+    .area-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; margin-top: 32px;
+    }
+    .area-item {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px; padding: 14px 18px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(255,255,255,.85);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .area-item::before { content: '›'; color: var(--accent-lt); }
+
+    /* ── CONTACT ── */
+    .contact-bg { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start;
+    }
+    @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+    .contact-row {
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px;
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      background: rgba(46,143,207,.1); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .contact-row p { font-size: .9rem; color: var(--gray-3); margin-top: 3px; }
+    .contact-row strong { font-size: .97rem; color: var(--text); }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      border: 1px solid var(--gray-2);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: .95rem; font-family: inherit;
+      background: var(--bg); color: var(--text); width: 100%;
+      transition: border-color .15s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(46,143,207,.12);
+    }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      background: var(--accent); color: var(--white);
+      border: none; border-radius: 8px;
+      padding: 13px 24px; font-size: .95rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: background .15s;
+    }
+    .contact-form button:hover { background: var(--accent-dk); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.55);
+      padding: 32px 24px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-inner a {
+      color: rgba(255,255,255,.5); text-decoration: none; font-size: 13px;
+      transition: color .15s;
+    }
+    .footer-inner a:hover { color: var(--white); }
+    .footer-links { display: flex; gap: 20px; list-style: none; }
+    .footer-copy { font-size: 13px; }
+
+    @media (max-width: 640px) {
+      .nav-links li:not(.nav-cta-li) { display: none; }
+      .hero { padding: 52px 20px 44px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <span class="logo-icon">🏗</span>
+      Nordic Gerüst
+    </a>
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#einsatzgebiet">Einsatzgebiet</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li class="nav-cta-li"><a class="nav-cta" href="#kontakt">Angebot anfragen</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🏗 Schenefeld · Hamburg · Schleswig-Holstein</div>
+      <h1>Gerüstbau mit<br/><em>nordischer Zuverlässigkeit</em></h1>
+      <p>Nordic Gerüst GmbH — Ihr Gerüstbauspezialist aus Schenefeld. Gerüstbauarbeiten aller Art sowie Montage von Planen und Netzen für die gesamte Region.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#kontakt">Jetzt Angebot anfordern ›</a>
+        <a class="btn-secondary" href="#leistungen">Leistungen ansehen</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-chip">
+        <span class="hero-chip-icon">⚡</span>
+        <div><strong>Schnelle Verfügbarkeit</strong><span>Kurzfristige Termine möglich</span></div>
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-icon">📋</span>
+        <div><strong>Planen & Netze</strong><span>Spezialmontage inklusive</span></div>
+      </div>
+      <div class="hero-chip">
+        <span class="hero-chip-icon">🔒</span>
+        <div><strong>Normengerechte Ausführung</strong><span>DGUV-konform, geprüfte Materialien</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHT BAR -->
+<div class="highlight-bg">
+  <div class="highlight-grid">
+    <div class="highlight-item">
+      <div class="highlight-val">100%</div>
+      <div class="highlight-label">Eigenes Personal</div>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-val">48h</div>
+      <div class="highlight-label">Angebotszusage</div>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-val">HH+SH</div>
+      <div class="highlight-label">Einsatzgebiet</div>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-val">∞</div>
+      <div class="highlight-label">Projekte möglich</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="leistungen">
+  <div class="section-inner">
+    <div class="section-label">Leistungen</div>
+    <h2 class="section-title">Gerüstbau aus einer Hand</h2>
+    <p class="section-sub">Von der Planung bis zur Abnahme — wir liefern sichere, maßgenaue Gerüste für jeden Bedarf.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">🏠</div>
+          <h3>Fassadengerüste</h3>
+        </div>
+        <p>Für Neubau, Sanierung und Renovierung. Normgerechte Montage, zuverlässiger Abbau nach Fertigstellung.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">🏗</div>
+          <h3>Dachgerüste & Dachfanggerüste</h3>
+        </div>
+        <p>Sicherheitsgerüste für Dacharbeiten, Kaminarbeiten und Dachsanierungen jeder Größe.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">🔧</div>
+          <h3>Industriegerüste</h3>
+        </div>
+        <p>Sondergerüste für Industrieanlagen, Wartungsarbeiten und schwer zugängliche Konstruktionen.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">🪟</div>
+          <h3>Planen- & Netzmontage</h3>
+        </div>
+        <p>Montage von Schutzplanen, Staubschutznetzen und Werbeplanen — schnell und fachgerecht.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">🛡</div>
+          <h3>Schutzgerüste</h3>
+        </div>
+        <p>Schutzdächer, Fanggerüste und Absturzsicherungen für öffentliche Bereiche und Passanten.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-top">
+          <div class="service-icon">📐</div>
+          <h3>Sonderkonstruktionen</h3>
+        </div>
+        <p>Maßgeschneiderte Lösungen für besondere Geometrien, historische Gebäude und Spezialanforderungen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-bg">
+  <div class="section-inner">
+    <div class="section-label">Unsere Stärken</div>
+    <h2 class="section-title">Was Nordic Gerüst auszeichnet</h2>
+    <p class="section-sub">Wir kombinieren handwerkliche Präzision mit klarer Kommunikation und verlässlichen Terminzusagen.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Fachgerechte Ausführung</h3>
+        <p>Alle Gerüste werden nach aktuellen DIN EN 12811 Normen und DGUV Vorschriften aufgebaut und abgenommen.</p>
+      </div>
+      <div class="why-item">
+        <h3>Planen- & Netzspezialist</h3>
+        <p>Neben dem Gerüstbau bieten wir als Spezialist die fachkundige Montage von Schutz- und Werbeplanen an.</p>
+      </div>
+      <div class="why-item">
+        <h3>Direkte Kommunikation</h3>
+        <p>Kein Call-Center, kein Büro-Ping-Pong. Sie sprechen direkt mit dem verantwortlichen Team.</p>
+      </div>
+      <div class="why-item">
+        <h3>Regionale Verwurzelung</h3>
+        <p>Wir kennen die Region, die Behörden und die lokalen Anforderungen — das spart Zeit und Nerven.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="area-bg" id="einsatzgebiet">
+  <div class="section-inner">
+    <div class="section-label" style="color: var(--accent-lt);">Einsatzgebiet</div>
+    <h2 class="section-title">Schenefeld und die gesamte Region</h2>
+    <p class="section-sub">Wir sind in Schenefeld, Hamburg und Schleswig-Holstein unterwegs — auf Anfrage auch überregional.</p>
+    <div class="area-grid">
+      <div class="area-item">Schenefeld</div>
+      <div class="area-item">Rellingen</div>
+      <div class="area-item">Hamburg</div>
+      <div class="area-item">Pinneberg</div>
+      <div class="area-item">Tornesch</div>
+      <div class="area-item">Elmshorn</div>
+      <div class="area-item">Wedel</div>
+      <div class="area-item">Norderstedt</div>
+      <div class="area-item">Quickborn</div>
+      <div class="area-item">Henstedt-Ulzburg</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="kontakt">
+  <div class="section-inner">
+    <div class="section-label">Kontakt</div>
+    <h2 class="section-title">Angebot anfordern</h2>
+    <p class="section-sub">Schildern Sie uns Ihr Vorhaben — wir melden uns kurzfristig mit einem unverbindlichen Angebot zurück.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Direkt erreichen</h3>
+        <div class="contact-row">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong><a href="tel:+49XXXXXXXXXX" style="color:var(--text);text-decoration:none;">+49 (0) XX XXXXXXX</a></strong>
+            <p>Mo–Fr 07:00–17:00 Uhr</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <strong><a href="mailto:info@nordic-geruest.de" style="color:var(--text);text-decoration:none;">info@nordic-geruest.de</a></strong>
+            <p>Antwort i.d.R. binnen 24h</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>Schenefeld / Hamburg</strong>
+            <p>Einsatz in Hamburg und Schleswig-Holstein</p>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" name="kontakt" method="POST" onsubmit="return false;">
+        <input type="text" name="name" placeholder="Ihr Name *" required />
+        <input type="tel" name="telefon" placeholder="Telefonnummer *" required />
+        <input type="email" name="email" placeholder="E-Mail-Adresse" />
+        <select name="leistung">
+          <option value="" disabled selected>Art des Gerüsts</option>
+          <option>Fassadengerüst</option>
+          <option>Dachgerüst</option>
+          <option>Industriegerüst</option>
+          <option>Planen- / Netzmontage</option>
+          <option>Sonstiges</option>
+        </select>
+        <textarea name="nachricht" placeholder="Beschreibung des Vorhabens (Adresse, Größe, Zeitraum)..."></textarea>
+        <button type="submit">Angebot anfordern →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2025 Nordic Gerüst GmbH · Schenefeld</span>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>
